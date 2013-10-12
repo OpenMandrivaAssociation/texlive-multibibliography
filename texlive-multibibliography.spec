@@ -6,7 +6,7 @@
 # catalog-version 1.03
 Name:		texlive-multibibliography
 Version:	1.03
-Release:	1
+Release:	2
 Summary:	Multiple versions of a bibliography, with different sort orders
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/multibibliography
@@ -18,7 +18,7 @@ BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
 Requires(post):	texlive-kpathsea
-Requires:	texlive-multibibliography.bin
+Provides:	texlive-multibibliography.bin = %{EVRD}
 
 %description
 Conventional standards for bibliography styles impose a forced
@@ -39,6 +39,7 @@ bibliography packages).
 
 #-----------------------------------------------------------------------
 %files
+%{_bindir}/multibibliography
 %{_texmfdistdir}/bibtex/bst/multibibliography/chronological.bst
 %{_texmfdistdir}/scripts/multibibliography/multibibliography.pl
 %{_texmfdistdir}/tex/latex/multibibliography/multibibliography.sty
@@ -61,5 +62,9 @@ bibliography packages).
 %build
 
 %install
+mkdir -p %{buildroot}%{_bindir}
+pushd %{buildroot}%{_bindir}
+    ln -sf %{_texmfdistdir}/scripts/multibibliography/multibibliography.pl multibibliography
+popd
 mkdir -p %{buildroot}%{_datadir}
 cp -fpar texmf-dist %{buildroot}%{_datadir}
