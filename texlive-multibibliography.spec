@@ -6,7 +6,7 @@
 # catalog-version 1.03
 Name:		texlive-multibibliography
 Version:	1.03
-Release:	4
+Release:	5
 Summary:	Multiple versions of a bibliography, with different sort orders
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/multibibliography
