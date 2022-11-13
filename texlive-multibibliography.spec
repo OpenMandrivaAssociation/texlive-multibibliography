@@ -1,19 +1,13 @@
-# revision 30939
-# category Package
-# catalog-ctan /macros/latex/contrib/multibibliography
-# catalog-date 2013-06-25 10:24:07 +0200
-# catalog-license lppl1.3
-# catalog-version 1.03
 Name:		texlive-multibibliography
-Version:	1.03
-Release:	11
+Version:	30939
+Release:	1
 Summary:	Multiple versions of a bibliography, with different sort orders
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/multibibliography
 License:	LPPL1.3
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/multibibliography.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/multibibliography.doc.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/multibibliography.source.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/multibibliography.r%{version}.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/multibibliography.doc.r%{version}.tar.xz
+Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/multibibliography.source.r%{version}.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -30,12 +24,12 @@ heterogeneous styles, are also supported (and work with other
 bibliography packages).
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
@@ -57,14 +51,15 @@ bibliography packages).
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1 -a2
+%setup -c -a1 -a2
+%autopatch -p1
 
 %build
 
 %install
 mkdir -p %{buildroot}%{_bindir}
 pushd %{buildroot}%{_bindir}
-    ln -sf %{_texmfdistdir}/scripts/multibibliography/multibibliography.pl multibibliography
+ln -sf %{_texmfdistdir}/scripts/multibibliography/multibibliography.pl multibibliography
 popd
 mkdir -p %{buildroot}%{_datadir}
 cp -fpar texmf-dist %{buildroot}%{_datadir}
