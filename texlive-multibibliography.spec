@@ -1,6 +1,6 @@
 Name:		texlive-multibibliography
 Version:	30939
-Release:	1
+Release:	2
 Summary:	Multiple versions of a bibliography, with different sort orders
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/multibibliography
