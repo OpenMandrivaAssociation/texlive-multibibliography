@@ -3,7 +3,7 @@ Version:	30939
 Release:	2
 Summary:	Multiple versions of a bibliography, with different sort orders
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/multibibliography
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/multibibliography
 License:	LPPL1.3
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/multibibliography.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/multibibliography.doc.r%{version}.tar.xz
