@@ -1,5 +1,6 @@
 %global tl_name multibibliography
 %global tl_revision 77682
+%global tl_bin_links multibibliography:%{_texmfdistdir}/scripts/multibibliography/multibibliography.pl
 
 Name:		texlive-%{tl_name}
 Epoch:		1
@@ -16,6 +17,8 @@ BuildArch:	noarch
 BuildSystem:	texlive
 Requires:	texlive(multibibliography.bin)
 Provides:	texlive(%{tl_name}) = %{tl_revision}
+Provides:	texlive(%{tl_name}.bin) = %{tl_revision}
+Provides:	texlive-%{tl_name}.bin = %{EVRD}
 
 %description
 Conventional standards for bibliography styles impose a forced choice
